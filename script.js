@@ -1,15 +1,44 @@
 Ajax.get("https://worldcup.sfg.io/teams/", (countryList) => {
+    var table = document.getElementById("countriesTable");
+
     for(var i=0; i<countryList.length; i++) {
-        console.log(countryList[i].country + " " + countryList[i].fifa_code);
+        var tr = table.appendChild(document.createElement("tr"));
+        
+        var td = tr.appendChild(document.createElement("td"));
+        td.appendChild(document.createTextNode(countryList[i].fifa_code));
+
+        var td = tr.appendChild(document.createElement("td"));
+        td.appendChild(document.createTextNode(countryList[i].country));
     }
 });
 
 Ajax.get("https://worldcup.sfg.io/teams/group_results", (groups) => {
+    var table = document.getElementById("groupsTable");
+
     for(var i=0; i<groups.length; i++) {
-        console.log(groups[i].id + " " + groups[i].letter);
+        var tr = table.appendChild(document.createElement("tr"));
+
+        var tdGroup = tr.appendChild(document.createElement("td"));
+        tdGroup.appendChild(document.createTextNode("Group " + groups[i].id + ": " + groups[i].letter));
+
+        // Заглавния ред
+        var tr = tdGroup.appendChild(document.createElement("tr"));
+
+        var td = tr.appendChild(document.createElement("td"));
+        td.appendChild(document.createTextNode("Fifa code"));
+
+        var td = tr.appendChild(document.createElement("td"));
+        td.appendChild(document.createTextNode("Country"));
+        // ******************************************************************************
 
         for(var j=0; j<groups[i].ordered_teams.length; j++) {
-            console.log("- " + groups[i].ordered_teams[j].country + " " + groups[i].ordered_teams[j].fifa_code);
+            var tr = tdGroup.appendChild(document.createElement("tr"));
+
+            var td = tr.appendChild(document.createElement("td"));
+            td.appendChild(document.createTextNode(groups[i].ordered_teams[j].fifa_code));
+
+            var td = tr.appendChild(document.createElement("td"));
+            td.appendChild(document.createTextNode(groups[i].ordered_teams[j].country));
         }
     }
 });
