@@ -3,9 +3,7 @@ var Ajax = {
     ajax : null,
 
     init() {
-        if(!this.ajax) {
-            this.ajax = new XMLHttpRequest();  
-        }
+        this.ajax = new XMLHttpRequest();  
         return this.ajax;
     },
  
