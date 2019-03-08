@@ -2,7 +2,7 @@ var LocalStorageUtil = {
     append(item, value) {
         var date = new Date();
 
-        var detailValue = date.getDay() + "." + date.getMonth() + "." + date.getFullYear() + " / " + (date.getUTCHours()+2) + ":" + date.getUTCMinutes() + ":" + date.getUTCSeconds() + " - " + value;
+        var detailValue = date.getDay() + "." + date.getMonth() + "." + date.getFullYear() + " / " + date.getUTCHours() + ":" + date.getUTCMinutes() + ":" + date.getUTCSeconds() + " - " + value;
 
         var newValue;
         
