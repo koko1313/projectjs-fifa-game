@@ -13,18 +13,15 @@
     <a href="matches.html">Matches</a>
     <a href="history.html">History</a>
 
-    <h1>Countries</h1>
+    <h1>History</h1>
 
-    <table id="countriesTable" border="1">
-        <tr>
-            <td>Fifa code</td>
-            <td>Country</td>
-        </tr>
-    </table>
+    <button onClick="LocalStorageUtil.clear('history')">Clear history</button>
+
+    <div id="history"></div>
 
     <script src="Ajax.js"></script>
     <script src="script.js"></script>
     <script src="LocalStorageUtil.js"></script>
-    <script>getCountries()</script>
+    <script>printHistory()</script>
 </body>
 </html>
